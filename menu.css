@@ -1,0 +1,134 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #222;
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 70px;
+    height: 70px;
+    background: #fff;
+    border-radius: 15px;
+    transition: 1.3s;
+    transition-delay: 0.8;
+}
+.container.active{
+    width: 200px;
+    height: 200px;
+    transition-delay: 0;
+}
+.container span{
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    background: #333;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transform: translate(calc(14px * var(--x)),calc(14px * var(--y)));
+    transition: transform 0.3s,  width 0.3s, height 0.3s, background 0.5s;
+    transition-delay: calc(0.1s * var(--i));
+}
+.container span ion-icon{
+    transition: 0.5s;
+    font-size: 0em;
+    color: #333;
+}
+.container.active span ion-icon{
+    font-size: 1.35em;
+}
+.container.active span{
+    transform: translate(calc(60px * var(--x)),calc(60px * var(--y)));
+    transition: 1s;
+    transition: transform 0.3s,  width 0.2s, height 0.2s;
+    transition-delay: calc(0.1s * var(--i));
+    background: #29fd53;
+    border: 2px solid #333;
+    width: 45px;
+    height: 45px;
+}
+.container .menutoggle{
+    position: absolute;
+    bottom: -15px;
+    width: 30px;
+    height: 15px;
+    background: #fff;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .menutoggle::before{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    top: 0;
+    left: -8px;
+    border-top-right-radius: 10px;
+    box-shadow: 2px -5px 0 2px #fff;
+}
+.container .menutoggle::after{
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: transparent;
+    top: 0;
+    right: -8px;
+    border-top-left-radius: 10px;
+    box-shadow: -2px -5px 0 2px #fff;
+}
+.container .menutoggle b{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: -10px;
+    background: transparent;
+    z-index: 1;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.container .menutoggle b::before{
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 2px;
+    background: #333;
+    transform: rotate(45deg);
+    transition: 0.7s;
+    left: 2.75px;
+}
+.container .menutoggle b::after{
+    content: '';
+    position: absolute;
+    width: 12px;
+    height: 2px;
+    background: #333;
+    transform: rotate(135deg);
+    transition: 0.7s;
+    right: 2.75px;
+}
+.container.active .menutoggle b::before{
+    left: 6.5px;
+}
+.container.active .menutoggle b::after{
+    right: 6.5px;
+}
